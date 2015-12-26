@@ -1,5 +1,104 @@
 body {
 	background: black;
 	color: white;
-	margin: 2em;
+	text-shadow: 0 0 3px black;
+	margin: 0 !important;
+	padding: 0 !important;
+	text-align: center;
+}
+
+input[type="checkbox"] {
+	float: left; 
+	margin-top: 5px;
+}
+
+#option {
+	padding-left: 2em;
+	font-weight: lighter;
+	font-size: 1.1em;
+}
+
+.query {
+	margin: 2em 0 1em 0;
+	font-size: 1.3em;
+	padding-top: 1em;
+}
+
+.section {
+	margin: auto;
+	text-align: left;
+	width: 60%;
+	padding-bottom: 10px;
+}
+
+#submit {
+	font-size: 18px;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+
+#retry_button{
+	font-size: 18px;
+	margin-top: 20px;
+	border-radius: 5px;
+	display: none;
+}
+
+.container {
+	margin: auto;
+	width: 50%;
+}
+
+#welcome {
+	margin: auto;
+	background-size: cover;
+	background-position: center;
+	height: 720px;
+	width: auto;
+	text-align: center;
+	color: black;
+	padding: 95px;
+	font-size: 40px;
+}
+
+#ending {
+	margin: auto;
+	background-size: cover;
+	background-position: center;
+	height: 720px;
+	width: auto;
+	text-align: center;
+}
+
+#question {
+	margin: 1.5em 0;
+    background-position: center;
+    background-size: cover;
+    width: auto;
+    height: 720px;
+	padding-top: 10em;
+}
+
+.content {
+	background: #333333;
+	opacity: 0.9;
+	border-radius: 10px;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 1em;
+}
+
+#button {
+	padding-bottom: 1em;
+}
+
+#submit {
+	margin-top: -2em;
+	margin-bottom: 1em;
+}
+
+input#submit {
+	background: #3399ff;
+	color: #f2f2f2;
+	border: solid #262626 2px;
 }
