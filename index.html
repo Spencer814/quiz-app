@@ -3,31 +3,202 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Soccer Quiz</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/stylesheet.css">
-
 	</head>
 	<body>
-		<h1>Soccer Quiz</h1>
-		<div id="question">
-			<span class="section">Question 1: What is the motto of FC Barcelona?</span><br>
-			<div id="answer">
-				<input type="checkbox">You'll never walk alone<br>
-				<input type="checkbox">More than a club<br>
-				<input type="checkbox">Only the best is good enough<br>
-				<input type="checkbox">Victory through harmony<br>
+		<div id="welcome" style="background-image: url(images/goal.jpeg);">
+			<h1>Welcome to the Soccer Quiz!</h1>
+			<h2>Some fun facts about a few big clubs</h2>
+			<h2 id="date"></h2>
+			<div id="button">
+				<input type="button" id="submit" value="Begin">
 			</div>
 		</div>
-		<div id="question">
-			<span class="section">Question 2: Which of these rivalries is the oldest?</span><br>
-			<div id="answer">
-				<input type="checkbox">Manchester United FC vs Liverpool FC - North West Derby<br>
-				<input type="checkbox">Sevilla FC vs Real Betis - Derbi servillano<br>
-				<input type="checkbox">FC Schalke 04 vs BV Borussia Dortmund - Revierderby<br>
-				<input type="checkbox">FC Internazionale vs Juventus FC - Derby d'Italia<br>
+		<div id="question" style="background-image: url(images/campnou.jpg);">
+			<div class="content">
+				<div class="query">
+					Question 1: What is the motto of FC Barcelona?
+				</div>
+				<div class="section">
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="1"><span id="option">You'll never walk alone</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="1"><span id="option">More than a club</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="1"><span id="option">Only the best is good enough</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="1"><span id="option">Victory through harmony</span></label>
+					</div>
+				</div>
+			</div>
+			<div id="button submit">
+				<input type="button" id="submit" value="Submit">
+				<input type="button" id="retry_button" value="Try Again!">
+			</div>
+			<div class="content">
+				<div class="container">
+					<h3>Progress</h3>
+					<div class="progress">
+						<div class="progress-bar progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">20% Complete (critical)</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="question" style="background-image: url(images/derby.jpg);">
+			<div class="content">
+				<div class="query">
+					Question 2: Which of these rivalries is the oldest?
+				</div>
+				<div class="section wide">
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="2"><span id="option">Manchester United FC vs Liverpool FC</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="2"><span id="option">Sevilla FC vs Real Betis</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="2"><span id="option">FC Schalke 04 vs BV Borussia Dortmund</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="2"><span id="option">FC Internazionale vs Juventus FC</span></label>
+					</div>
+				</div>
+			</div>
+			<div id="button submit">
+				<input type="button" id="submit" value="Submit">
+				<input type="button" id="retry_button" value="Try Again!">
+			</div>
+			<div class="content">
+				<div class="container">
+					<h3>Progress</h3>
+					<div class="progress">
+						<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">40% Complete (danger)</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="question" style="background-image: url(images/cl.jpg);">
+			<div class="content">
+				<div class="query">
+					Question 3: Which team has the most UEFA Champions League Titles?
+				</div>
+				<div class="section">
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="3"><span id="option">AC Milan</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="3"><span id="option">FC Bayern Munich</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="3"><span id="option">Liverpool FC</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="3"><span id="option">Real Madrid CF</span></label>
+					</div>
+				</div>
+			</div>
+			<div id="button submit">
+				<input type="button" id="submit" value="Submit">
+				<input type="button" id="retry_button" value="Try Again!">
+			</div>
+			<div class="content">
+				<div class="container">
+					<h3>Progress</h3>
+					<div class="progress">
+						<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">60% Complete (warning)</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="question" style="background-image: url(images/managers.jpg);">
+			<div class="content">
+				<div class="query">
+					Question 4: Who is the manager with the most Premier League Titles?
+				</div>
+				<div class="section">
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="4"><span id="option">Arsène Wegner</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="4"><span id="option">Sir Alex Ferguson</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="4"><span id="option">Kenny Dalglish</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="4"><span id="option">José Mourinho</span></label>
+					</div>
+				</div>
+			</div>
+			<div id="button submit">
+				<input type="button" id="submit" value="Submit">
+				<input type="button" id="retry_button" value="Try Again!">
+			</div>
+			<div class="content">
+				<div class="container">
+					<h3>Progress</h3>
+					<div class="progress">
+						<div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">80% Complete (info)</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="question" style="background-image: url(images/london.jpg);">
+			<div class="content">
+				<div class="query">
+					Question 5: Which London based team has the most League Titles?
+				</div>
+				<div class="section">
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="5"><span id="option">Chelsea FC</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="5"><span id="option">Tottenham Hotspur FC</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="5"><span id="option">Arsenal FC</span></label>
+					</div>
+					<div id="answer">
+						<label><input type="checkbox" class="radio" name="5"><span id="option">West Ham United FC</span></label>
+					</div>
+				</div>
+			</div>
+			<div id="button submit">
+				<input type="button" id="submit" value="Submit">
+				<input type="button" id="retry_button" value="Try Again!">
+			</div>
+			<div class="content">
+				<div class="container">
+					<h3>Progress</h3>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">100% Complete (success)</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="ending" style="background-image: url(images/cwc.jpg);">
+			<div class="content">
+				<h1>Thanks for taking the Soccer Quiz!</h1>
+				<h2>Here are your results</h2>
+			</div>
+			<div class="content">
+				<div id="piechart" style="width: 900px; height: 500px; display: block; margin: 0 auto;"></div>
+			</div>
+			<div class="content">
+				<h3>Click start to play again!</h3>
+			</div>
+			<div id="button">
+				<input type="button" id="submit" value="Start">
 			</div>
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		<script src="js/chart.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
 		<script src="js/application.js"></script>
 	</body>
 </html>
