@@ -1,15 +1,25 @@
 body {
-	background-image: url("../images/goal.jpeg");
+	background-image: url("../images/goal.jpg");
 	/*background-size: cover;*/
 	background-position: center;
 	height: 360px;
-	width: 100%;
 	text-align: center;
+}
+
+.question-one {
+	background-image: url("../images/london.jpg");
+}
+
+.question-two {
+	background-image: url("../images/derby.jpg");
 }
 
 #start,
 #content {
 	margin: 6em 0;
+}
+#content, #quiz, #final {
+	display: none;
 }
 
 #space {
@@ -18,8 +28,8 @@ body {
 
 #center {
 	display: inline-block;
-    height: 30px;
-    margin-left: 3px;
+  height: 30px;
+  margin-left: 3px;
 }
 
 #final {

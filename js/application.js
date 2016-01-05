@@ -1,41 +1,53 @@
-'use strict';
+ 'use strict';
 
+$('#startButton').click(function(){
+  startQuiz();
+})
+$('#submit').click(function(){
+  quizProgress();
+})
+$('#quiz').click(function(){
+  showFinalResults();
+})
+$('#retake').click(function(){
+  reloadPage();
+})
 
 var quiz = [{
   "question": 'What is the motto of FC Barcelona?',
-  "images": 'images/image.jpg',
+  "background": 'question-one',
   "choices": ["You'll never walk alone", 'More than a club', 'Only the best is good enough', 'Victory through harmony'],
   "correct": 'More than a club'
 }, {
   "question": 'Which of these rivalries is the oldest?',
-  "images": 'images/image.jpg',
+  "background": 'question-two',
   "choices": ['Manchester United FC vs Liverpool FC', 'Sevilla FC vs Real Betis', 'FC Schalke 04 vs BV Borussia Dortmund', 'FC Internazionale vs Juventus FC'],
   "correct": 'Manchester United FC vs Liverpool FC'
 }, {
   "question": 'Which team has the most UEFA Champions League Titles?',
-  "images": 'images/image.jpg',
+  "background": 'question-three',
   "choices": ['AC Milan', 'FC Bayern Munich', 'Liverpool FC', 'Real Madrid CF'],
   "correct": 'Real Madrid CF'
 }, {
   "question": 'Who is the manager with the most Premier League Titles?',
-  "images": 'images/image.jpg',
+  "background": 'question-one',
   "choices": ['Arsène Wegner', 'Sir Alex Ferguson', 'Kenny Dalglish', 'José Mourinho'],
   "correct": 'Sir Alex Ferguson'
 }, {
   "question": 'Which London based team has the most League Titles?',
-  "images": 'images/image.jpg',
+  "background": 'question-one',
   "choices": ['Chelsea FC', 'Tottenham Hotspur FC', 'Arsenal FC', 'West Ham United FC'],
   "correct": 'Arsenal FC'
 }];
 
 
 // define elements
-var content = $("content"),
-  questionContainer = $("question"),
-  imagesContainer = $("images"),
-  choicesContainer = $("choices"),
-  scoreContainer = $("score"),
-  submitBtn = $("submit");
+var content = $("#content").get(0),
+  questionContainer = $("#question").get(0),
+  imagesContainer = $("#images").get(0),
+  choicesContainer = $("#choices").get(0),
+  scoreContainer = $("#score").get(0),
+  submitBtn = $("#submit").get(0);
 
 // init vars
 var currentQuestion = 0,
@@ -43,12 +55,15 @@ var currentQuestion = 0,
   askingQuestion = true;
 
 
-function $(id) { // shortcut for document.getElementById
-  return document.getElementById(id);
-}
+// function $(id) { // shortcut for document.getElementById
+//   return document.getElementById(id);
+// }
 
 
 function askQuestion() {
+  if(currentQuestion != 0) {
+    changeBackground();
+  }
   var choices = quiz[currentQuestion].choices,
     choicesHtml = "";
 
@@ -78,6 +93,7 @@ function askQuestion() {
 
 function checkAnswer() {
   // are we asking a question, or proceeding to next question?
+  console.log(currentQuestion)
   if (askingQuestion) {
     submitBtn.textContent = "Next Question";
     askingQuestion = false;
@@ -200,4 +216,9 @@ function reloadPage(){
 function startQuiz() {
     document.getElementById("content").style.display = 'block';
     document.getElementById("start").style.display = 'none';
+    changeBackground();
+}
+
+function changeBackground(){
+  $('body').removeClass().addClass(quiz[currentQuestion].background);
 }

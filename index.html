@@ -12,33 +12,32 @@
 				<h1>Welcome to the Soccer Quiz!</h1>
 				<h2>Some fun facts about a few big clubs</h2>
 				<h3 id="date"></h2>
-				<input type="submit" value="Begin" class="button" id="start" onclick="startQuiz();"></input>
+				<input type="submit" value="Begin" class="button" id="startButton"></input>
 			</div>
-			<div id="content" style="display: none;">
+			<div id="content">
 				<h3 id="question"></h3>
 				<div id="images"></div>
 				<div id="choices"></div>
 				<div id="space">
-					<button id="submit" onclick="quizProgress()"></button>
+					<button id="submit"></button>
 				</div>
 				<div id="space">
 					<progress id="myProgress" value="0" max="5"></progress>
 				</div>
 				<div id="center">
-					<input type="submit" value="Results" class="button" id="quiz" onclick="showFinalResults()" style="display: none;"></input>
+					<input type="submit" value="Results" class="button" id="quiz"></input>
 				</div>
 				<p id="score"></p>
 			</div>
-			<div id="final" style="display: none;">
+			<div id="final">
 				<div id="space">
 					<canvas id="can" width="200" height="200" />
 				</div>
 				<div id="space">
-					<input type="submit" onclick="reloadPage()" value="Try Again!" class="button" id="retake"></input>
+					<input type="submit" value="Try Again!" class="button" id="retake"></input>
 				</div>
 			</div>
 		</div>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="http://code.jquery.com/jquery.min.js"></script>
 		<script src="js/application.js"></script>
 	</body>
