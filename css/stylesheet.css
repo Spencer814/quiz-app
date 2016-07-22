@@ -1,0 +1,22 @@
+body {
+	background-image: url("../images/goal.jpeg");
+	background-position: center;
+	height: 360px;
+	text-align: center;
+	width: 100%;
+}
+#start,
+#content {
+	margin: 6em 0;
+}
+#space {
+	padding: 1em 0;
+}
+#center {
+	display: inline-block;
+  height: 30px;
+  margin-left: 3px;
+}
+#final {
+	margin: -6em 0;
+}
