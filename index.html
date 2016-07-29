@@ -3,42 +3,65 @@
   <head>
     <meta charset="UTF-8">
     <title>Soccer Quiz</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="container">
-      <div id="start">
-        <h1>Welcome to the Soccer Quiz!</h1>
-        <h2>Some fun facts about a few big clubs</h2>
-        <h3 id="date"></h2>
-        <input type="submit" value="Begin" class="button" id="start" onclick="startQuiz();"></input>
-      </div>
-      <div id="content" style="display: none;">
-        <h3 id="question"></h3>
-        <div id="images"></div>
-        <div id="choices"></div>
-        <div id="space">
-          <button id="submit" onclick="quizProgress()"></button>
+    <div class="container">
+      <div class="jumbotron">
+        <div id="home" class="panel panel-default">
+          <div class="panel-heading">
+            <h1 class="panel-title">Welcome to the Soccer Quiz!</h1>
+            <h1><small class="head">Some fun facts about a few big clubs</small></h1>
+          </div>
+          <div class="panel-footer">
+            <button type="button" class="btn btn-success begin" id="start" onclick="startQuiz();">
+              <p>Begin</p>
+            </button>
+          </div>
         </div>
-        <div id="space">
-          <progress id="myProgress" value="0" max="5"></progress>
+        <div id="content" class="panel panel-success items">
+          <div class="panel-heading end">
+            <p id="question" class="panel-title"></p>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemax="100" style="width: 0%;">
+              <span class="sr-only"></span>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table" id="choices"></table>
+          </div>
+          <div class="panel-footer">
+            <button type="button" class="btn btn-success submit" id="submit" onclick="quizProgress()">
+              <p>Submit Answer</p>
+            </button>
+            <button type="button" class="btn btn-success quiz" id="quiz" onclick="showFinalResults()">
+              <p>Results</p>
+            </button>
+          </div>
         </div>
-        <div id="center">
-          <input type="submit" value="Results" class="button" id="quiz" onclick="showFinalResults()" style="display: none;"></input>
-        </div>
-        <p id="score"></p>
-      </div>
-      <div id="final" style="display: none;">
-        <div id="space">
-          <canvas id="can" width="200" height="200" />
-        </div>
-        <div id="space">
-          <input type="submit" onclick="reloadPage()" value="Try Again!" class="button" id="retake"></input>
+        <div class="panel panel-default">
+          <div id="final" class="final">
+            <div class="again panel-body">
+              <button type="button" class="btn btn-success" onclick="reloadPage()">
+                <p>Try Again!</p>
+              </button>
+            </div>
+            <div class="end panel-footer">
+              <div class="outside">
+                <div class="inside">
+                  <img src="images/football.png" class="image">
+                  <canvas id="canvas" class="canvas" width="200" height="200"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="js/application.js"></script>
   </body>
 </html>

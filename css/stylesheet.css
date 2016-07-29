@@ -1,22 +1,105 @@
 body {
-	background-image: url("../images/goal.jpeg");
-	background-position: center;
-	height: 360px;
-	text-align: center;
+  background-color: #cfd7da;
+  background-image: url("../images/goal.jpeg");
+  background-position: center;
+  text-align: center;
+}
+body,
+.image {
+	max-height: 100%;
 	width: 100%;
 }
-#start,
-#content {
-	margin: 6em 0;
+.begin {
+  margin: 8em auto -10em;
 }
-#space {
-	padding: 1em 0;
+.quiz,
+.items,
+.final {
+  display: none;
 }
-#center {
-	display: inline-block;
-  height: 30px;
-  margin-left: 3px;
+.quiz,
+.submit {
+  margin: 1em auto;
 }
-#final {
-	margin: -6em 0;
+.final {
+  margin: -6em 0;
+}
+.end {
+  margin: 1em auto 0;
+  padding: 1em 0;
+}
+.again {
+  margin: 7.3em 0 -2em;
+}
+.table {
+  margin: 0 auto;
+  width: 50%;
+}
+input[type=radio],
+label {
+  margin: 0;
+}
+.label,
+button {
+  font-size: inherit;
+  font-weight: inherit;
+}
+span {
+  margin: auto 1em;
+}
+.jumbotron,
+.items > .results,
+.panel,
+.panel-default > .panel-heading,
+.panel-footer,
+.progress {
+  background: transparent;
+}
+.panel,
+.panel-default > .panel-heading,
+.panel-footer,
+.panel-success > .panel-heading,
+.table > tbody > tr > td {
+  border-color: transparent;
+}
+.panel,
+.jumbotron p,
+.outside {
+  margin: 0 auto;
+}
+.table > tbody > tr > td {
+  padding: 8px 0;
+  vertical-align: middle;
+}
+.jumbotron p {
+  font-size: 20px;
+  font-weight: 400;
+}
+.bubble {
+  text-align: right;
+  width: 1%;
+}
+.text {
+  vertical-align: middle;
+  width: 99%;
+}
+.head,
+.items > .results {
+  color: inherit;
+}
+.outside {
+  width: 200px;
+}
+.inside,
+.image {
+  position: relative;
+}
+.image,
+.canvas {
+  left: 0;
+  top: 0;
+}
+.canvas {
+  opacity: 0.7;
+  position: absolute;
 }

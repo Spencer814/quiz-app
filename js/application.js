@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 var quiz = [{
   "question": "What is the motto of FC Barcelona?",
@@ -27,20 +27,18 @@ var quiz = [{
   "correct": "Arsenal FC"
 }];
 
-// define elements
 var content = $("content"),
-  questionContainer = $("question"),
-  imagesContainer = $("images"),
-  choicesContainer = $("choices"),
-  scoreContainer = $("score"),
-  submitBtn = $("submit");
+    questionContainer = $("question"),
+    imagesContainer = $("images"),
+    choicesContainer = $("choices"),
+    scoreContainer = $("score"),
+    submitBtn = $("submit");
 
-// init vars
 var currentQuestion = 0,
-  score = 0,
-  askingQuestion = true;
+    score = 0,
+    askingQuestion = true;
 
-function $(id) { // shortcut for document.getElementById
+function $(id) {
   return document.getElementById(id);
 }
 
@@ -48,51 +46,36 @@ function askQuestion() {
   var choices = quiz[currentQuestion].choices,
     choicesHtml = "";
 
-  // loop through choices, and create radio buttons
   for (var i = 0; i < choices.length; i++) {
-    choicesHtml += "<input type='radio' name='quiz" + currentQuestion +
+    choicesHtml += "<tr><td class='bubble'><input type='radio' name='quiz" + currentQuestion +
       "' id='choice" + (i + 1) +
-      "' value='" + choices[i] + "'>" +
-      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label><br>";
+      "' value='" + choices[i] + "'></td>" +
+      " <td class='text'><label for='choice" + (i + 1) + "'><p>" + choices[i] + "</p></label></td></tr>";
   }
 
-  // load the question
-  questionContainer.textContent = "Question " + (currentQuestion + 1) + ": " +
+  questionContainer.innerHTML = "<span class='label label-success'>Question " + (currentQuestion + 1) + ":</span>" +
     quiz[currentQuestion].question;
 
-  // load the choices
   choicesContainer.innerHTML = choicesHtml;
-
-  // setup for the first time
-  if (currentQuestion === 0) {
-    scoreContainer.textContent = "0 correct out of " +
-      quiz.length + " possible questions.";
-    submitBtn.textContent = "Submit Answer";
-  }
 }
 
 function checkAnswer() {
-  // are we asking a question, or proceeding to next question?
   if (askingQuestion) {
-    submitBtn.textContent = "Next Question";
+    submitBtn.innerHTML = "<p>Next Question</p>";
     askingQuestion = false;
 
-    // determine which radio button they clicked
     var userpick,
-      correctIndex,
-      radios = document.getElementsByName("quiz" + currentQuestion);
+        correctIndex,
+        radios = document.getElementsByName("quiz" + currentQuestion);
     for (var i = 0; i < radios.length; i++) {
-      if (radios[i].checked) { // if this radio button is checked
+      if (radios[i].checked) {
         userpick = radios[i].value;
       }
-
-      // get index of correct answer
       if (radios[i].value == quiz[currentQuestion].correct) {
         correctIndex = i;
       }
     }
 
-    // setup if they got it right, or wrong
     var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
     labelStyle.fontWeight = "bold";
     if (userpick == quiz[currentQuestion].correct) {
@@ -101,15 +84,9 @@ function checkAnswer() {
     } else {
       labelStyle.color = "red";
     }
-
-    scoreContainer.textContent = score + " correct out of " +
-      quiz.length + " possible questions.";
-  } else { // move to next question
-    // setting up so user can ask a question
+  } else {
     askingQuestion = true;
-    // change button text back to "Submit Answer"
-    submitBtn.textContent = "Submit Answer";
-    // if we're not on last question, increase question number
+    submitBtn.innerHTML = "<p>Submit Answer</p>";
     if (currentQuestion < quiz.length - 1) {
       currentQuestion++;
       askQuestion();
@@ -119,71 +96,52 @@ function checkAnswer() {
   }
 }
 
+function startQuiz() {
+  document.getElementById("content").style.display = "block";
+  document.getElementById("start").style.display = "none";
+  document.getElementById("home").style.display = "none";
+  document.getElementById("quiz").style.displsy = "none";
+}
+
 function endGame() {
   document.getElementById("submit").style.display = "none";
-  document.getElementById("quiz").style.display = "block";
+  document.getElementById("quiz").style.display = "inline-block";
 }
 
 function showFinalResults() {
   document.getElementById("final").style.display = "block";
-  content.innerHTML = "<h2>Thanks for taking the Soccer Quiz!</h2>" + "<h2>Here are your results:</h2>" +
-    "<h2>" + score + " out of " + quiz.length + " questions, " + Math.round(score / quiz.length * 100) + "%<h2>";
-    
-    var canvas = document.getElementById("can");
-    var ctx = canvas.getContext("2d");
-    var lastend = 0;
-    var data = [(quiz.length - score), score];
-    var myTotal = 0;
-    var myColor = ["red", "green"];
+  content.innerHTML = "<div class='panel-heading results'><h1 class='panel-title'>Thanks for taking the Quiz!</h1>" + "<h1><small class='head'>Your score: " + Math.round(score / quiz.length * 100) +  "%</small></h1></div>" +
+  "<div class='panel-body'><h2>" + score + " out of " + quiz.length + " questions</h2></div>";
 
-    for(var e = 0; e < data.length; e++) {
-      myTotal += data[e];
-    }
-    for (var i = 0; i < data.length; i++) {
-      ctx.fillStyle = myColor[i];
-      ctx.beginPath();
-      ctx.moveTo(canvas.width /2 , canvas.height / 2);
-      ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, lastend, lastend + (Math.PI * 2 * (data[i] / myTotal)), false);
-      ctx.lineTo(canvas.width / 2, canvas.height / 2);
-      ctx.fill();
-      lastend += Math.PI * 2 * (data[i] / myTotal);
-    }
+  var canvas = document.getElementById("canvas"),
+      ctx = canvas.getContext("2d"),
+      lastend = 0,
+      data = [(quiz.length - score), score],
+      myTotal = 0,
+      myColor = ["red", "green"];
+
+  for(var e = 0; e < data.length; e++) {
+    myTotal += data[e];
+  }
+  for (var i = 0; i < data.length; i++) {
+    ctx.fillStyle = myColor[i];
+    ctx.beginPath();
+    ctx.moveTo(canvas.width /2 , canvas.height / 2);
+    ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, lastend, lastend + (Math.PI * 2 * (data[i] / myTotal)), false);
+    ctx.lineTo(canvas.width / 2, canvas.height / 2);
+    ctx.fill();
+    lastend += Math.PI * 2 * (data[i] / myTotal);
+  }
 }
 
 window.addEventListener("load", askQuestion, false);
 submitBtn.addEventListener("click", checkAnswer, false);
 
 function quizProgress() {
-    document.getElementById("myProgress").value = score;
-}
-
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    var ampm = today.getHours() >= 12 ? "pm" : "am";
-    var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    m = checkTime(m);
-    s = checkTime(s);
-    h = h % 12;
-    h = h ? h : 12;
-    document.getElementById("date").innerHTML =
-    day[today.getDay()] + ", " + month[today.getMonth()] + " " + today.getDate() + ", " + today.getFullYear() + "<br>" + h + ":" + m + ":" + s + ampm;
-    var t = setTimeout(startTime, 500);
-}
-
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};
-  return i;
+  var quizBar = score * 20;
+  jQuery(".progress-bar.progress-bar-success.progress-bar-striped.active").css("width", quizBar+"%").attr("aria-valuenow", quizBar);
 }
 
 function reloadPage(){
   location.reload();
 };
-
-function startQuiz() {
-  document.getElementById("content").style.display = "block";
-  document.getElementById("start").style.display = "none";
-}
