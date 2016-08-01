@@ -1,20 +1,20 @@
 // "use strict";
 
 var quiz = [{
-  "question": "What is the motto of FC Barcelona?",
+  "question": "What is the motto of Barcelona?",
   "images": "images/image.jpg",
   "choices": ["You'll never walk alone", "More than a club", "Only the best is good enough", "Victory through harmony"],
   "correct": "More than a club"
 }, {
   "question": "Which of these rivalries is the oldest?",
   "images": "images/image.jpg",
-  "choices": ["Manchester United FC vs Liverpool FC", "Sevilla FC vs Real Betis", "FC Schalke 04 vs BV Borussia Dortmund", "FC Internazionale vs Juventus FC"],
-  "correct": "Manchester United FC vs Liverpool FC"
+  "choices": ["Manchester Utd vs Liverpool", "Sevilla vs Betis", "Schalke vs Dortmund", "Inter Milan vs Juventus"],
+  "correct": "Manchester Utd vs Liverpool"
 }, {
-  "question": "Which team has the most UEFA Champions League Titles?",
+  "question": "Which team has the most Champions League Titles?",
   "images": "images/image.jpg",
-  "choices": ["AC Milan", "FC Bayern Munich", "Liverpool FC", "Real Madrid CF"],
-  "correct": "Real Madrid CF"
+  "choices": ["AC Milan", "Bayern Munich", "Liverpool", "Real Madrid"],
+  "correct": "Real Madrid"
 }, {
   "question": "Who is the manager with the most Premier League Titles?",
   "images": "images/image.jpg",
@@ -23,8 +23,8 @@ var quiz = [{
 }, {
   "question": "Which London based team has the most League Titles?",
   "images": "images/image.jpg",
-  "choices": ["Chelsea FC", "Tottenham Hotspur FC", "Arsenal FC", "West Ham United FC"],
-  "correct": "Arsenal FC"
+  "choices": ["Chelsea", "Tottenham", "Arsenal", "West Ham"],
+  "correct": "Arsenal"
 }];
 
 var content = $("content"),
@@ -54,7 +54,7 @@ function askQuestion() {
   }
 
   questionContainer.innerHTML = "<span class='label label-success'>Question " + (currentQuestion + 1) + ":</span>" +
-    quiz[currentQuestion].question;
+    "<p class='query'>" + quiz[currentQuestion].question + "</p>";
 
   choicesContainer.innerHTML = choicesHtml;
 }
