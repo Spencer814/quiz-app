@@ -1,13 +1,18 @@
-body {
-  background-color: #cfd7da;
+html {
   background-image: url("../images/goal.jpeg");
   background-position: center;
+  min-height: 100%;
   text-align: center;
 }
-body,
+body {
+  background-color: transparent;
+}
 .image {
 	max-height: 100%;
 	width: 100%;
+}
+.container-fluid {
+  margin: 6em auto;
 }
 .begin {
   margin: 8em auto -10em;
@@ -41,7 +46,6 @@ label {
 }
 .label,
 button {
-  font-size: inherit;
   font-weight: inherit;
 }
 span {
@@ -62,26 +66,21 @@ span {
 .table > tbody > tr > td {
   border-color: transparent;
 }
+.panel > .table-responsive {
+  width: 100%;
+  margin: 0 auto;
+}
 .panel,
 .jumbotron p,
 .outside {
   margin: 0 auto;
 }
 .table > tbody > tr > td {
-  padding: 8px 0;
+  padding: 8px;
   vertical-align: middle;
 }
 .jumbotron p {
-  font-size: 20px;
   font-weight: 400;
-}
-.bubble {
-  text-align: right;
-  width: 1%;
-}
-.text {
-  vertical-align: middle;
-  width: 99%;
 }
 .head,
 .items > .results {
@@ -102,4 +101,84 @@ span {
 .canvas {
   opacity: 0.7;
   position: absolute;
+}
+.jumbotron p > .query {
+  margin-top: 0.5em;
+}
+.bubble {
+  float: left;
+  margin-right: 1em;
+}
+.text {
+  text-align: center;
+  float: left;
+  width: 80%;
+}
+@media (max-width: 543px) {
+  .jumbotron h1 {
+    font-size: 2.75em !important;
+  }
+  .table {
+    width: 100%;
+  }
+}
+@media (min-width: 544px) and (max-width: 767px) {
+  .jumbotron h1 {
+    font-size: 3em !important;
+  }
+  .table {
+    width: 75%;
+  }
+  .text {
+    width: 85%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .jumbotron h1 {
+    font-size: 3.25em !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .jumbotron h1 {
+    font-size: 3.75em !important;
+  }
+  .panel > .table-responsive {
+    width: 80%;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+   .jumbotron h1 {
+    font-size: 4em;
+  }
+  .panel > .table-responsive {
+    width: 65%;
+  }
+  .text {
+    width: 81%;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1599px) {
+  .jumbotron h1 {
+    font-size: 4em;
+  }
+  .panel > .table-responsive {
+    width: 65%;
+  }
+  .text {
+    width: 82%;
+  }
+}
+@media (min-width: 1600px) {
+  .jumbotron h1 {
+    font-size: 4em;
+  }
+  .panel > .table-responsive {
+    width: 65%;
+  }
+  .table {
+    width: 45%;
+  }
+  .text {
+    width: 83%;
+  }
 }
